@@ -1,0 +1,208 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+    box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
+body,
+.App {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    width: 100%;
+    font-size: 16px;
+    background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+    overflow: visible;
+
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+
+}
+
+/* HEADER STYLES */
+
+.app-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-top: 3px solid #a5a1a1;
+    border-bottom: 1px solid #e3dede;
+    z-index: 1;
+    background-color: white;
+}
+
+.app-title h1 {
+    font-size: 1.5rem;
+}
+
+.app-add-button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 77px;
+    width: 180px;
+    padding: 28px 15px 28px 30px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.app-add-button:hover {
+    background: #ddd;
+}
+
+/* OBITUARIES STYLES */
+
+.obituary-list {
+    width: 100%;
+    height: fit-content;
+    padding: 50px;
+    /* display: grid;
+    grid-gap: 1.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-flow: dense; /* add this line */
+    /* grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));   */
+    column-width: 250px;
+    column-count: auto;
+    column-gap: 20px;
+    position: relative;
+    top: 80px;
+    z-index: 0;
+}
+
+.obituary {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 250px;
+    margin-bottom: 30px;
+    height: fit-content;
+    break-inside: avoid;
+}
+
+.obituary-buttons {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.obituary-button-play {
+    border-radius: 50%;
+
+}
+
+.obituary-img{
+    width: 250px;
+    height: auto;
+    
+}
+
+.obituary-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.obituary-info{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.obituary-body{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* OBITUARY CREATOR WINDOW STYLES */
+.obituary-creator-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.obituary-creator-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    border: none;
+    background: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.creator-name-input {
+    width: 600px;
+    height: 50px;
+    border: 1px solid #e3dede;
+    font-size: 1rem;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.creator-date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+}
+
+.creator-date-container input {
+    width: 200px;
+    height: 40px;
+    border: none;
+    font-size: 1rem;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin: 0px;
+}
+
+.creator-date-container input:focus {
+    outline: none;
+}
+
+.creator-submit-button {
+    width: 600px;
+    height: 50px;
+    border: none;
+    background: #a5a1a1;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
