@@ -150,6 +150,14 @@ body,
     z-index: 100;
 }
 
+#img-upload {
+    display: none;
+}
+
+.img-upload-label:hover {
+    text-decoration: underline;
+}
+
 .obituary-creator-close-button {
     position: absolute;
     top: 0;
