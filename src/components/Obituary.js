@@ -1,4 +1,4 @@
-function Obituary({id, name, date, body}) {
+function Obituary({name, birthDate, deathDate, body, formatDate}) {
     return (
         <div className="obituary">
             <div className="obituary-img">
@@ -6,7 +6,7 @@ function Obituary({id, name, date, body}) {
             </div>
             <div className="obituary-info">
                 <p>{name}</p>
-                <small>{date}</small>
+                <small>{formatDate(birthDate)} - {formatDate(deathDate)}</small>
             </div>
             <div className="obituary-body">
                 <p>{body}</p>

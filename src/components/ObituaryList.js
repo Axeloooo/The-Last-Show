@@ -1,12 +1,12 @@
 import Obituary from './Obituary';
 
-function ObituaryList({obituaries}) {
-    if (obituaries.length === 0) return <div className="no-obituaries">No Obituary Yet</div>;
+function ObituaryList({obituaries, formatDate}) {
+    if (obituaries.length === 0) return <div className="no-obituaries"><h1>No Obituary Yet</h1></div>;
 
     return(
         <div className="obituary-list">
             {obituaries.map((obituary) => (
-            <Obituary id={obituary.id} name={obituary.name} date={obituary.date} body={obituary.body} />
+            <Obituary name={obituary.name} birthDate={obituary.birthDate} deathDate={obituary.deathDate} body={obituary.body} formatDate={formatDate}/>
             ))}
 
         </div>

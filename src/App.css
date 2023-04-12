@@ -25,6 +25,22 @@ body,
 
 }
 
+.no-obituaries {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+
+}
+
+.no-obituaries h1 {
+    font-size: 1.2rem;
+    color: #c9c9c9;
+}
+
 /* HEADER STYLES */
 
 .app-header{

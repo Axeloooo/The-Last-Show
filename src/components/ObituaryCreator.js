@@ -4,11 +4,12 @@ function ObituaryCreator({changeVisibilityCreator, onAddObituary}) {
     const [name, setName] = useState("");
     const dt = new Date();
     dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset());
-    const [date, setDate] = useState(dt.toISOString().slice(0, 16));
+    const [birthDate, setBirthDate] = useState();
+    const [deathDate, setDeathDate] = useState();
     const [img, setImg] = useState(null);
 
-const WriteObituary = (name) => {
-    onAddObituary(name);
+const WriteObituary = (name, birthDate, deathDate) => {
+    onAddObituary(name, birthDate, deathDate);
     changeVisibilityCreator();
 };
 
@@ -23,11 +24,11 @@ const WriteObituary = (name) => {
             <input className="creator-name-input" type="text" placeholder="Name of the deceased" value={name} onChange={(e) => setName(e.target.value)}/>
             <div className="creator-date-container">
                 <p>Born: </p>
-                <input className="date-input-birth" type="datetime-local" />
+                <input className="date-input-birth" type="datetime-local" onChange={(e) => setBirthDate(e.target.value)}/>
                 <p>Died: </p>
-                <input className="date-input-death" type="datetime-local" />
+                <input className="date-input-death" type="datetime-local" onChange={(e) => setDeathDate(e.target.value)}/>
             </div>
-            <button className="creator-submit-button" onClick={() => WriteObituary(name)}>Write Obituary</button>
+            <button className="creator-submit-button" onClick={() => WriteObituary(name, birthDate, deathDate)}>Write Obituary</button>
         </div>
     );
 }
