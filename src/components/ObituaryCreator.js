@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function ObituaryCreator({changeVisibilityCreator, onAddObituary}) {
     const [name, setName] = useState("");
@@ -14,22 +14,22 @@ const WriteObituary = (name, birthDate, deathDate) => {
 };
 
     return (
-        <div className="obituary-creator-container">
+        <form className="obituary-creator-container">
             <div className="obituary-creator-close-button" onClick={changeVisibilityCreator}>x</div>
             <h1 className="title">Create a New Obituary</h1>
             <label htmlFor="img-upload" className="img-upload-label">
                 <input id="img-upload" type="file" onChange={(e) => setImg(e.target.files[0])}/>
                 {img ? (<p>Select an image for the deceased ({img.name})</p>) : (<p>Select an image for the deceased</p>)}
             </label>
-            <input className="creator-name-input" type="text" placeholder="Name of the deceased" value={name} onChange={(e) => setName(e.target.value)}/>
+            <input className="creator-name-input" type="text" placeholder="Name of the deceased" value={name} onChange={(e) => setName(e.target.value)} required/>
             <div className="creator-date-container">
                 <p>Born: </p>
-                <input className="date-input-birth" type="datetime-local" onChange={(e) => setBirthDate(e.target.value)}/>
+                <input className="date-input-birth" type="datetime-local" onChange={(e) => setBirthDate(e.target.value)} required/>
                 <p>Died: </p>
-                <input className="date-input-death" type="datetime-local" onChange={(e) => setDeathDate(e.target.value)}/>
+                <input className="date-input-death" type="datetime-local" onChange={(e) => setDeathDate(e.target.value)} required/>
             </div>
-            <button className="creator-submit-button" onClick={() => WriteObituary(name, birthDate, deathDate)}>Write Obituary</button>
-        </div>
+            <input type="submit" className="creator-submit-button" value="Write Obituary" onSubmit={() => WriteObituary(name, birthDate, deathDate)}/>
+        </form>
     );
 }
 

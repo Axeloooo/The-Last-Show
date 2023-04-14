@@ -19,14 +19,11 @@ function Obituary({onUpdateObituary, open, name, birthDate, deathDate, body, for
                 <p>{name}</p>
                 <small>{formatDate(birthDate)} - {formatDate(deathDate)}</small>
             </div>
-            {open ? (
+            {open && (
             <div className="obituary-body">
                 <p>{body}</p>
             </div>
-            ) : (
-            <div className="obituary-body"><p>No writing</p></div>
-            )
-            }
+            ) }
             <div className="obituary-buttons">
                 <button className="obituary-button-play">Play</button>
             </div>
