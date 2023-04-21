@@ -7,9 +7,11 @@ function ObituaryList({onUpdateObituary, obituaries, formatDate}) {
     return(
         <div className="obituary-list">
             {obituaries.map((obituary) => (
-            <Obituary onUpdateObituary={onUpdateObituary} open={obituary.open} name={obituary.name} birthDate={obituary.birthDate} deathDate={obituary.deathDate} body={obituary.body} formatDate={formatDate}/>
+            <div className="item">
+                <Obituary onUpdateObituary={onUpdateObituary} open={obituary.open} name={obituary.name} born_year={obituary.born_year} died_year={obituary.died_year} obituary_text={obituary.obituary_text} obituary_image_url={obituary.obituary_image_url} obituary_audio_url={obituary.obituary_audio_url} formatDate={formatDate}/>
+                <div className="space"></div>
+            </div>          
             ))}
-
         </div>
     );
 }

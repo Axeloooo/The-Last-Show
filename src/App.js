@@ -21,6 +21,7 @@ function App() {
       );
       const data = await res.json();
       setObituaries(data);
+      console.log(data);
     };
     fetchObituaries();
   }, []);
@@ -78,10 +79,7 @@ function App() {
   const onUpdateObituary = async (updatedObituary) => {
     const updatedObituaryArray = obituaries.map((obituary) => {
       if (
-        obituary.name === updatedObituary.name &&
-        obituary.birthDate === updatedObituary.birthDate &&
-        obituary.deathDate === updatedObituary.deathDate
-      ) {
+        obituary.name === updatedObituary.name) {
         return updatedObituary;
       }
       return obituary;
@@ -92,11 +90,13 @@ function App() {
   return (
     <div className="app-container">
       <Header changeVisibilityCreator={changeVisibilityCreator} />
-      <ObituaryList
-        onUpdateObituary={onUpdateObituary}
-        obituaries={obituaries}
-        formatDate={formatDate}
-      />
+      <div className="container">
+        <ObituaryList
+          onUpdateObituary={onUpdateObituary}
+          obituaries={obituaries}
+          formatDate={formatDate}
+        />
+      </div>
       {showCreator && (
         <ObituaryCreator
           changeVisibilityCreator={changeVisibilityCreator}
