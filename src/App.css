@@ -1,9 +1,8 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
-
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 * {
     box-sizing: border-box;
 }
-
 /* GLOBAL STYLES */
 
 body,
@@ -120,15 +119,16 @@ body,
 
 .obituary-buttons {
     width: 100%;
-    height: 40px;
+    height: 60px;
     display: flex;
     justify-content: center;
-    
+    padding: 10px;
 }
 
 .obituary-button-play {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-
 }
 
 .obituary-img{
@@ -173,6 +173,8 @@ body,
     justify-content: center;
     align-items: center;
     padding: 10px;
+    font-family: 'Satisfy', cursive;
+    padding: 10px 15px 10px 15px
 }
 
 @media only screen and (max-width: 1000px) {
