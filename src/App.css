@@ -122,15 +122,26 @@ body,
 }
 
 .obituary-img{
-    width: 250px;
-    height: auto;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
     
 }
 
 .obituary-img img {
-    width: 100%;
+    width: 250px;
     height: auto;
     border-radius: 10px 10px 0 0;
+}
+
+.obituary-img-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background: radial-gradient(circle farthest-corner at 48% 50%, rgba(0, 0, 0, 0.07) 64%, rgba(0, 0, 0, 1) 97.4%);
 }
 
 .obituary-info{

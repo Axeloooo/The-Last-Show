@@ -14,6 +14,7 @@ function Obituary({onUpdateObituary, open, name, birthDate, deathDate, body, for
         <div className="obituary" onClick={changeObituaryVisibility}>
             <div className="obituary-img" >
                 <img src="https://clipartix.com/wp-content/uploads/2018/02/Minion-black-and-white-pic-minions-clipart.jpg" alt="obituary" />
+                <div className="obituary-img-overlay"></div>
             </div>
             <div className="obituary-info">
                 <p>{name}</p>
