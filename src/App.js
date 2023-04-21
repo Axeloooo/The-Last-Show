@@ -6,13 +6,24 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [showCreator, setShowCreator] = useState(false);
-  const [obituaries, setObituaries] = useState(
-    localStorage.obituaries ? JSON.parse(localStorage.obituaries) : []
-  );
+  const [obituaries, setObituaries] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem("obituaries", JSON.stringify(obituaries));
-  }, [obituaries]);
+    const fetchObituaries = async () => {
+      const res = await fetch(
+        "https://f7itakwuthszobp6ykjx3pgsyq0eeonm.lambda-url.ca-central-1.on.aws/",
+        {
+          method: "GET",
+          header: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+      setObituaries(data);
+    };
+    fetchObituaries();
+  }, []);
 
   const onAddObituary = async (image, name, birthDate, deathDate) => {
     const data = new FormData();
