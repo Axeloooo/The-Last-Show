@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [showCreator, setShowCreator] = useState(false);
-  const [obituaries, setObituaries] = useState([]);
+  const [obituaries, setObituaries] = useState(localStorage.obituaries ? JSON.parse(localStorage.obituaries) : []);
 
   useEffect(() => {
     localStorage.setItem("obituaries", JSON.stringify(obituaries));

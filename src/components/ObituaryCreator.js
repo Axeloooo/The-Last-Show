@@ -8,13 +8,18 @@ function ObituaryCreator({changeVisibilityCreator, onAddObituary}) {
     const [deathDate, setDeathDate] = useState();
     const [img, setImg] = useState(null);
 
-const WriteObituary = (name, birthDate, deathDate) => {
-    onAddObituary(name, birthDate, deathDate);
-    changeVisibilityCreator();
-};
+    const onSubmit = (e) => {
+        e.preventDefault();
+        WriteObituary(name, birthDate, deathDate);
+    }
+
+    const WriteObituary = (name, birthDate, deathDate) => {
+        onAddObituary(name, birthDate, deathDate);
+        changeVisibilityCreator();
+    };
 
     return (
-        <form className="obituary-creator-container">
+        <form className="obituary-creator-container" onSubmit={onSubmit}>
             <div className="obituary-creator-close-button" onClick={changeVisibilityCreator}>x</div>
             <h1 className="title">Create a New Obituary</h1>
             <label htmlFor="img-upload" className="img-upload-label">
@@ -28,7 +33,7 @@ const WriteObituary = (name, birthDate, deathDate) => {
                 <p>Died: </p>
                 <input className="date-input-death" type="datetime-local" onChange={(e) => setDeathDate(e.target.value)} required/>
             </div>
-            <input type="submit" className="creator-submit-button" value="Write Obituary" onSubmit={() => WriteObituary(name, birthDate, deathDate)}/>
+            <button type="submit" value="Submit" className="creator-submit-button" >Create Obituary</button>
         </form>
     );
 }
