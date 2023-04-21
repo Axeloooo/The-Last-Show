@@ -417,6 +417,9 @@ def lambda_handler(event, context):
         # Create item for DynamoDB
         item = {
             "id": str(id),
+            "name": name,
+            "born_year": born_year,
+            "died_year": died_year,
             "obituary_image_url": obituary_image_url,
             "obituary_audio_url": obituary_audio_url,
             "obituary_text": obituary_text,
