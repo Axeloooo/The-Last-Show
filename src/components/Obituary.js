@@ -1,4 +1,5 @@
 function Obituary({onUpdateObituary, open, name, birthDate, deathDate, body, formatDate}) {
+    
     const changeObituaryVisibility = () => {
         open = !open;
         onUpdateObituary({

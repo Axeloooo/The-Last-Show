@@ -44,7 +44,7 @@ function App() {
 
   const onUpdateObituary = async (updatedObituary) => {
     const updatedObituaryArray = obituaries.map((obituary) => {
-        if (obituary.body === updatedObituary.body) {
+        if (obituary.name === updatedObituary.name && obituary.birthDate === updatedObituary.birthDate && obituary.deathDate === updatedObituary.deathDate) {
         return updatedObituary;
         }
         return obituary;
