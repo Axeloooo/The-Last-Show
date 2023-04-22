@@ -82,40 +82,34 @@ body,
 
 .container{
     padding: 50px 20px 50px 20px;
+    width: 100%;
 }
 
 .obituary-list {
-    height: fit-content;
-    width: auto;
+    display: flex;
     margin: 20px;
-    padding-top: 50px;
-    column-count: 4;
-    column-gap: 5rem;
-}
-
-.item{
-    width: 100%;
-    flex-shrink: 1;
+    width: auto;
     height: fit-content;
-    break-inside: avoid;
+    padding-top: 50px;
 }
 
-.box{
-    height: 200px;
+.column{
+    flex-basis: 350px;
+    flex-shrink: 1;
+    height: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .obituary {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     height: fit-content;
-    width: auto;
+    margin-bottom: 30px;
 }
-
-.space{
-    height: 50px;
-    width: 100px;    
-}
-
 
 .obituary-buttons {
     width: 100%;
@@ -166,6 +160,10 @@ body,
     align-items: center;
 }
 
+.obituary-info small{
+    font-size: 10px;
+}
+
 .obituary-body{
     width: 100%;
     height: auto;
@@ -174,19 +172,31 @@ body,
     align-items: center;
     padding: 10px;
     font-family: 'Satisfy', cursive;
+    font-size: 1.2rem;
     padding: 10px 15px 10px 15px
 }
 
 @media only screen and (max-width: 1000px) {
-    .obituary-list{
-        column-count: 2;
+    .column{
+        flex-basis: 550px;
+        padding: 0 50px;
+
     }
   }
 
   @media only screen and (max-width: 620px) {
     .obituary-list{
+        display: block;
         column-count: 1;
     }
+
+    .column{
+        margin-left: 60px;
+        margin-right: 60px;
+        padding: 0 30px;
+    }
+
+
   }
 
 /* OBITUARY CREATOR WINDOW STYLES */

@@ -21,9 +21,9 @@ function App() {
       );
       const data = await res.json();
       setObituaries(data);
-      console.log(data);
     };
     fetchObituaries();
+    console.log(obituaries);
   }, []);
 
   const onAddObituary = async (image, name, birthDate, deathDate) => {
