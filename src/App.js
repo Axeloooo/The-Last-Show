@@ -34,7 +34,6 @@ function App() {
     data.append("deathDate", deathDate);
 
     setLoading(true);
-    console.log('loading: true');
     try {
       const res = await fetch(
         "https://5woydzwm463jmh2ob3ovtjsc4i0nscof.lambda-url.ca-central-1.on.aws/",
@@ -48,14 +47,24 @@ function App() {
         throw new Error(`An error occurred: ${res.statusText}`);
       }
 
-      const newObituary = await res.json();
-      
+      const newObituaryObject = await res.json();
+      console.log(newObituaryObject);
+      const newObituary = {
+        id: newObituaryObject.id,
+        name: newObituaryObject.name,
+        born_year: newObituaryObject.born_year,
+        died_year: newObituaryObject.died_year,
+        obituary_text: newObituaryObject.obituary_text,
+        open: true,
+        obituary_image_url: newObituaryObject.obituary_image_url,
+        obituary_audio_url: newObituaryObject.obituary_audio_url
+    }
+
       setObituaries((prevObituaries) => [...prevObituaries, newObituary]);
     } catch (error) {
       console.error("Error:", error);
     } finally {
       setLoading(false);
-      console.log('loading: false');
       changeVisibilityCreator();
     }
   };

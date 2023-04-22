@@ -4,7 +4,6 @@ function Obituary({onUpdateObituary, open, name, born_year, died_year, obituary_
     const [playing, setPlaying] = useState(false);
     const [audio, setAudio] = useState(new Audio(obituary_audio_url));
 
-
     const toggleSound = () => {
         setPlaying(!playing);
     };
