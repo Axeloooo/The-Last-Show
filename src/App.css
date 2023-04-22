@@ -270,11 +270,28 @@ body,
     width: 600px;
     height: 50px;
     border: none;
-    background: #a5a1a1;
+    background: #0aedad;
     color: #fff;
     font-size: 1rem;
     padding: 0 10px;
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.creator-submit-button:hover {
+    background: #4a4848;
+}
+
+.creator-submit-button-disabled {
+    width: 600px;
+    height: 50px;
+    border: none;
+    background: #a5a1a1;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: not-allowed;
 }

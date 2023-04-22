@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [showCreator, setShowCreator] = useState(false);
   const [obituaries, setObituaries] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchObituaries = async () => {
@@ -23,7 +24,6 @@ function App() {
       setObituaries(data);
     };
     fetchObituaries();
-    console.log(obituaries);
   }, []);
 
   const onAddObituary = async (image, name, birthDate, deathDate) => {
@@ -33,8 +33,8 @@ function App() {
     data.append("birthDate", birthDate);
     data.append("deathDate", deathDate);
 
-    console.log(data);
-
+    setLoading(true);
+    console.log('loading: true');
     try {
       const res = await fetch(
         "https://5woydzwm463jmh2ob3ovtjsc4i0nscof.lambda-url.ca-central-1.on.aws/",
@@ -49,12 +49,14 @@ function App() {
       }
 
       const newObituary = await res.json();
-
-      console.log(newObituary);
-
+      
       setObituaries((prevObituaries) => [...prevObituaries, newObituary]);
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
+      console.log('loading: false');
+      changeVisibilityCreator();
     }
   };
 
@@ -99,6 +101,7 @@ function App() {
       </div>
       {showCreator && (
         <ObituaryCreator
+          loading={loading}
           changeVisibilityCreator={changeVisibilityCreator}
           onAddObituary={onAddObituary}
         />

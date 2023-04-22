@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ObituaryCreator({ changeVisibilityCreator, onAddObituary }) {
+function ObituaryCreator({ loading, changeVisibilityCreator, onAddObituary }) {
   const dt = new Date();
   dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset());
   const [name, setName] = useState("");
@@ -10,12 +10,7 @@ function ObituaryCreator({ changeVisibilityCreator, onAddObituary }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    WriteObituary(img, name, birthDate, deathDate);
-  };
-
-  const WriteObituary = (img, name, birthDate, deathDate) => {
     onAddObituary(img, name, birthDate, deathDate);
-    changeVisibilityCreator();
   };
 
   const handleImageChange = (e) => {
@@ -70,9 +65,15 @@ function ObituaryCreator({ changeVisibilityCreator, onAddObituary }) {
           required
         />
       </div>
-      <button type="submit" value="Submit" className="creator-submit-button">
-        Create Obituary
-      </button>
+      {loading ? (
+        <button disabled={true} type="submit" value="Submit" className="creator-submit-button-disabled">
+          Please wait. It's not like they-re gonna be late for something.
+        </button>
+      ) : (
+        <button type="submit" value="Submit" className="creator-submit-button">
+          Write Obituary
+        </button>
+      )}
     </form>
   );
 }
