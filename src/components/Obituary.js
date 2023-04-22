@@ -22,7 +22,12 @@ function Obituary({onUpdateObituary, open, name, born_year, died_year, obituary_
 
     const changeObituaryVisibility = () => {
         open = !open;
-        setAudio(new Audio(obituary_audio_url));
+        if (open){
+            setAudio(new Audio(obituary_audio_url));
+        }
+        else {
+            setPlaying(false);
+        }
         
         onUpdateObituary({
             name: name,

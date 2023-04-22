@@ -21,6 +21,7 @@ function App() {
         }
       );
       const data = await res.json();
+      console.log(data);
       setObituaries(data);
     };
     fetchObituaries();
@@ -48,7 +49,6 @@ function App() {
       }
 
       const newObituaryObject = await res.json();
-      console.log(newObituaryObject);
       const newObituary = {
         id: newObituaryObject.id,
         name: newObituaryObject.name,
