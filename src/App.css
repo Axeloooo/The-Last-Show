@@ -245,6 +245,11 @@ body,
     margin-bottom: 0px;
 }
 
+.creator-name-input:focus {
+    outline: none !important;
+    border:1px solid #0aedad;
+}
+
 .creator-date-container {
     display: flex;
     justify-content: center;
