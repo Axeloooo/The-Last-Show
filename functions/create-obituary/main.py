@@ -213,6 +213,10 @@ def upload_to_cloudinary(filename, resource_type):
         timestamp = int(time.time())
         body["timestamp"] = timestamp
 
+        # Add the eager transformation if the resource type is an image
+        if resource_type == "image":
+            body["eager"] = "e_art:zorro"
+
         # Create the signature
         body["signature"] = create_signature(body)
 
@@ -220,6 +224,10 @@ def upload_to_cloudinary(filename, resource_type):
         url = f"https://api.cloudinary.com/v1_1/{credentials['Cloudinary_Cloud_Name']}/{resource_type}/upload"
 
         res = requests.post(url, data=body, files=files)
+
+        if resource_type == "image":
+            return res.json()["eager"][0]["url"]
+
         return res.json()["url"]
 
     except Exception as e:
