@@ -1,5 +1,6 @@
 # add your create-obituary function here
 
+import datetime
 import uuid
 import boto3
 import json
@@ -420,17 +421,19 @@ def lambda_handler(event, context):
         obituary_audio_url = upload_to_cloudinary(obituary_audio, "video")
 
         # Generate a random id
-        id = uuid.uuid4()
+        id = str(uuid.uuid4())
+        timestamp = str(datetime.datetime.now())
 
         # Create item for DynamoDB
         item = {
-            "id": str(id),
+            "id": id,
             "name": name,
             "born_year": born_year,
             "died_year": died_year,
             "obituary_image_url": obituary_image_url,
             "obituary_audio_url": obituary_audio_url,
             "obituary_text": obituary_text,
+            "created_at": timestamp
         }
 
         # Put the item to DynamoDB
