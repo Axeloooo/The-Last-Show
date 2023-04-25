@@ -9,22 +9,39 @@ function App() {
   const [obituaries, setObituaries] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const sortData = (data) => {
+    return data.sort((a, b) => {
+      return new Date(a.created_at) - new Date(b.created_at);
+    });
+  };
+
   useEffect(() => {
-    const fetchObituaries = async () => {
-      const res = await fetch(
-        "https://f7itakwuthszobp6ykjx3pgsyq0eeonm.lambda-url.ca-central-1.on.aws/",
-        {
-          method: "GET",
-          header: {
-            "Content-Type": "application/json",
-          },
+    try {
+      const fetchObituaries = async () => {
+        const res = await fetch(
+          "https://f7itakwuthszobp6ykjx3pgsyq0eeonm.lambda-url.ca-central-1.on.aws/",
+          {
+            method: "GET",
+            header: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error(`An error occurred: ${res.statusText}`);
         }
-      );
-      const data = await res.json();
-      console.log(data);
-      setObituaries(data);
-    };
-    fetchObituaries();
+
+        const data = await res.json();
+        const sortedFetchedData = sortData(data);
+
+        setObituaries(sortedFetchedData);
+      };
+
+      fetchObituaries();
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }, []);
 
   const onAddObituary = async (image, name, birthDate, deathDate) => {
@@ -57,8 +74,8 @@ function App() {
         obituary_text: newObituaryObject.obituary_text,
         open: true,
         obituary_image_url: newObituaryObject.obituary_image_url,
-        obituary_audio_url: newObituaryObject.obituary_audio_url
-    }
+        obituary_audio_url: newObituaryObject.obituary_audio_url,
+      };
 
       setObituaries((prevObituaries) => [...prevObituaries, newObituary]);
     } catch (error) {
@@ -89,8 +106,7 @@ function App() {
 
   const onUpdateObituary = async (updatedObituary) => {
     const updatedObituaryArray = obituaries.map((obituary) => {
-      if (
-        obituary.name === updatedObituary.name) {
+      if (obituary.name === updatedObituary.name) {
         return updatedObituary;
       }
       return obituary;
