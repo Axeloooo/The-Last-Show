@@ -35,6 +35,7 @@ function App() {
         const data = await res.json();
         const sortedFetchedData = sortData(data);
 
+        console.log(sortedFetchedData);
         setObituaries(sortedFetchedData);
       };
 
