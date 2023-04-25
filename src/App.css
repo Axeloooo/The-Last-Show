@@ -140,16 +140,16 @@ body,
     z-index:0;
 }
 
-.obituary-img-overlay{
+/* .obituary-img-overlay{
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     border-radius: 10px 10px 0 0;
-    /* background: radial-gradient(circle farthest-corner at 48% 50%, rgba(0, 0, 0, 0) 38.8%, rgba(0, 0, 0, 1) 73.3%); */
+    background: radial-gradient(circle farthest-corner at 48% 50%, rgba(0, 0, 0, 0) 38.8%, rgba(0, 0, 0, 1) 73.3%);
     z-index: 1;
-}
+} */
 
 .obituary-info{
     width: 100%;

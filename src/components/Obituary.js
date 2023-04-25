@@ -46,7 +46,7 @@ function Obituary({onUpdateObituary, open, name, born_year, died_year, obituary_
             <div className="obituary-container" onClick={changeObituaryVisibility}>
                 <div className="obituary-img" >
                     <img src={obituary_image_url} alt="obituary"/>
-                    <div className="obituary-img-overlay"></div>
+                    {/* <div className="obituary-img-overlay"></div> */}
                 </div>
                 <div className="obituary-info">
                     <p>{name}</p>
