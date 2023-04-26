@@ -20,13 +20,14 @@ function ObituaryCreator({ loading, changeVisibilityCreator, onAddObituary }) {
   };
 
   return (
-    <form className="obituary-creator-container" onSubmit={onSubmit}>
+    <div className="creator-display">
       <div
         className="obituary-creator-close-button"
         onClick={changeVisibilityCreator}
       >
         x
       </div>
+    <form className="obituary-creator-container" onSubmit={onSubmit}>
       <h1 className="title">Create a New Obituary</h1>
       <label htmlFor="img-upload" className="img-upload-label">
         <input
@@ -75,6 +76,7 @@ function ObituaryCreator({ loading, changeVisibilityCreator, onAddObituary }) {
         </button>
       )}
     </form>
+    </div>
   );
 }
 
