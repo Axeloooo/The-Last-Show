@@ -18,15 +18,12 @@ function App() {
   useEffect(() => {
     try {
       const fetchObituaries = async () => {
-        const res = await fetch(
-          "https://f7itakwuthszobp6ykjx3pgsyq0eeonm.lambda-url.ca-central-1.on.aws/",
-          {
-            method: "GET",
-            header: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch(`${import.meta.env.REACT_GET_LAMBDA_URL}`, {
+          method: "GET",
+          header: {
+            "Content-Type": "application/json",
+          },
+        });
 
         if (!res.ok) {
           throw new Error(`An error occurred: ${res.statusText}`);
@@ -54,13 +51,10 @@ function App() {
 
     setLoading(true);
     try {
-      const res = await fetch(
-        "https://5woydzwm463jmh2ob3ovtjsc4i0nscof.lambda-url.ca-central-1.on.aws/",
-        {
-          method: "PUT",
-          body: data,
-        }
-      );
+      const res = await fetch(`${import.meta.env.REACT_PUT_LAMBDA_URL}`, {
+        method: "PUT",
+        body: data,
+      });
 
       if (!res.ok) {
         throw new Error(`An error occurred: ${res.statusText}`);

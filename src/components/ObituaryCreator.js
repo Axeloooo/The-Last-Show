@@ -27,55 +27,64 @@ function ObituaryCreator({ loading, changeVisibilityCreator, onAddObituary }) {
       >
         x
       </div>
-    <form className="obituary-creator-container" onSubmit={onSubmit}>
-      <h1 className="title">Create a New Obituary</h1>
-      <label htmlFor="img-upload" className="img-upload-label">
+      <form className="obituary-creator-container" onSubmit={onSubmit}>
+        <h1 className="title">Create a New Obituary</h1>
+        <label htmlFor="img-upload" className="img-upload-label">
+          <input
+            id="img-upload"
+            type="file"
+            required
+            onChange={handleImageChange}
+          />
+          {img ? (
+            <p>Select an image for the deceased ({img.name})</p>
+          ) : (
+            <p>Select an image for the deceased</p>
+          )}
+        </label>
         <input
-          id="img-upload"
-          type="file"
+          className="creator-name-input"
+          type="text"
+          placeholder="Name of the deceased"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
-          onChange={handleImageChange}
         />
-        {img ? (
-          <p>Select an image for the deceased ({img.name})</p>
+        <div className="creator-date-container">
+          <p>Born: </p>
+          <input
+            className="date-input-birth"
+            type="datetime-local"
+            onChange={(e) => setBirthDate(e.target.value)}
+            required
+          />
+          <p>Died: </p>
+          <input
+            className="date-input-death"
+            type="datetime-local"
+            onChange={(e) => setDeathDate(e.target.value)}
+            required
+          />
+        </div>
+        {loading ? (
+          <button
+            disabled={true}
+            type="submit"
+            value="Submit"
+            className="creator-submit-button-disabled"
+          >
+            Please wait. It's not like they-re gonna be late for something.
+          </button>
         ) : (
-          <p>Select an image for the deceased</p>
+          <button
+            type="submit"
+            value="Submit"
+            className="creator-submit-button"
+          >
+            Write Obituary
+          </button>
         )}
-      </label>
-      <input
-        className="creator-name-input"
-        type="text"
-        placeholder="Name of the deceased"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <div className="creator-date-container">
-        <p>Born: </p>
-        <input
-          className="date-input-birth"
-          type="datetime-local"
-          onChange={(e) => setBirthDate(e.target.value)}
-          required
-        />
-        <p>Died: </p>
-        <input
-          className="date-input-death"
-          type="datetime-local"
-          onChange={(e) => setDeathDate(e.target.value)}
-          required
-        />
-      </div>
-      {loading ? (
-        <button disabled={true} type="submit" value="Submit" className="creator-submit-button-disabled">
-          Please wait. It's not like they-re gonna be late for something.
-        </button>
-      ) : (
-        <button type="submit" value="Submit" className="creator-submit-button">
-          Write Obituary
-        </button>
-      )}
-    </form>
+      </form>
     </div>
   );
 }
