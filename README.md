@@ -1,5 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/o-xnQ34X)
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/o-xnQ34X)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2027d22e-4dc0-4ca6-b5ec-e81bd962c2cc/deploy-status)](https://app.netlify.com/sites/symphonious-duckanoo-407e4b/deploys)
+
 # The Last Show
 
 In this assignment, you will create a full stack application with React and AWS that generates obituaries for people (fictional or otherwise). You will use [ChatGPT](https://openai.com/blog/chatgpt) to generate an obituary, [Amazon Polly](https://aws.amazon.com/polly/) to turn the obituary into speech, and [Cloudinary](https://cloudinary.com/) to store the speech and a picture of the deceased (may they rest in peace).
@@ -81,8 +81,8 @@ In case you're doing the assignment as part of a group, pay attention to the fol
 - Cloudinary has a generous free tier. If you don't send thousands of requests for large files, you won't have to pay anything. If you're over the free tier, you could create a new free account (will give you new keys)
 - ChatGPT has a free tier. If you're careful, you won't have to pay anything. If you're over the free tier, you could create a new free account (will give you new API Key)
 
-
 ## :heavy_plus_sign: Bonus Marks
+
 - You can grab 10 extra points if you orchestrate different steps of the `create-obituary` Lambda function with [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html). You would have to orchestrate 4 Lambda functions:
   - `generate-obituary` that uses ChatGPT
   - `read-obituary` that uses Amazon Polly
