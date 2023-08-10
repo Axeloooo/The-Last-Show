@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     try {
       const fetchObituaries = async () => {
-        const res = await fetch(`${import.meta.env.REACT_GET_LAMBDA_URL}`, {
+        const res = await fetch(`${process.env.REACT_GET_LAMBDA_URL}`, {
           method: "GET",
           header: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function App() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${import.meta.env.REACT_PUT_LAMBDA_URL}`, {
+      const res = await fetch(`${process.env.REACT_PUT_LAMBDA_URL}`, {
         method: "PUT",
         body: data,
       });
