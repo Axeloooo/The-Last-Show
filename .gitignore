@@ -80,3 +80,5 @@ urllib3-1.26.15.dist-info
 /.vscode
 
 test
+
+.env
